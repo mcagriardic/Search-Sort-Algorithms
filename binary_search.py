@@ -14,7 +14,6 @@ class BinarySearch:
         
         self.mid = None
         self.val_found = False
-        self.stop_condition = False
 
 
     def set_mid(self):
