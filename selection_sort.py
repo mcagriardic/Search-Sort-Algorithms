@@ -1,5 +1,5 @@
 ### Selection sort implementation ###
-## O(N^2) -> N x((N-1) + (N-2) + (N-3) + .... +1)
+## O(N^2) -> N x((N-1) + (N-2) + (N-3) + .... +1) = N^2/2
 
 class SelectionSort:
     
