@@ -1,8 +1,5 @@
 ### Binary search implementation ###
 
-# numpy is imported to generate lists
-import numpy as np
-
 class BinarySearch:
     
     def __init__(self, lst, val, verbose=False):
@@ -62,9 +59,8 @@ class BinarySearch:
         print("\nTook %s steps..." %self.count)
 
 
-generated_list = list(np.linspace(0, 2**25, num=2**25 + 1).astype(int))
-search_instance = BinarySearch(\
-    lst=generated_list,
+search_instance = BinarySearch(
+    lst=list(range(2**28)),
     val=5,
     verbose=False)
 search_instance.search()
