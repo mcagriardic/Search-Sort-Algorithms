@@ -39,6 +39,7 @@ class BinarySearchTree(object):
             self.insert(val_to_insert, root.left)
             
     def delete(self, val_to_delete, root):
+        # Case 1 - no child
         if not root:
             return None
         
@@ -48,14 +49,18 @@ class BinarySearchTree(object):
             root.left = self.delete(val_to_delete, root.left)
         elif val_to_delete == root.val:
             
+            # Case 2-1 - has the left child
             if not root.right:
                 return root.left
             
+            # Case 2-2 - has the right child
             if not root.left:
                 return root.right
             
+            # Case 3 - has both childs
             if root.left and root.right:
                 temp_var = root.right
+                # find the minimum in the right sub tree
                 while temp_var.left:
                     temp_var = temp_var.left
                 
