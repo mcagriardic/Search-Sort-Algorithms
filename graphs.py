@@ -19,7 +19,6 @@ class SocialNetwork(object):
         visited = []
         queue = [starting_vertex]
         
-        index = 1
         while queue:
             if queue[0] not in visited:
                 print(queue[0].name)
