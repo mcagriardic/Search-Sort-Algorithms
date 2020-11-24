@@ -14,4 +14,4 @@ def expand(cs, to_append=""):
 
     return expanded
 
-expand("2[a2[b]a2[c]]")
+expand("2[a2[b]]")
