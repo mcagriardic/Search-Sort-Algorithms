@@ -56,13 +56,13 @@ class LinkedList:
 
 
 minus_one = Node(-1)
+minus_five = Node(-5)
+four = Node(4)
 eleven = Node(11)
 
-minus_five = Node(-5, minus_one)
-
-four = Node(4, eleven)
+minus_five.next_node = minus_one
 minus_one.next_node = four
-
+four.next_node = eleven
 
 ll = LinkedList(minus_five)
 
