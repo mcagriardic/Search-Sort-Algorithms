@@ -23,7 +23,6 @@ def all_subsets(cs):
     if len(cs) == 0:
         return [[]]
     
-    subsets = []
     z = all_subsets(cs[1:])
     
     return z + [[cs[0]] + e for e in z]
