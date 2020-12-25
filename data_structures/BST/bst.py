@@ -6,19 +6,18 @@ class BST:
         self.ro = ro
 
 
-    def __traverse(self, ro, order="post"):
-        
+    def __traverse(self, ro, order):
         if not ro:
             return None
         
         if order == "pre":   print(ro.v)
-        self.__traverse(ro.l)
+        self.__traverse(ro.l, order=order)
         if order == "in":    print(ro.v)
-        self.__traverse(ro.r)
+        self.__traverse(ro.r, order=order)
         if order == "post":  print(ro.v)
 
-    def traverse(self):
-        self.__traverse(self.ro)
+    def traverse(self, order="post"):
+        self.__traverse(self.ro, order=order)
 
 
     def __search(self, ro, vts):
