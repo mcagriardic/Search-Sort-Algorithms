@@ -1,7 +1,6 @@
 from tree_node import Node
 
 class BST:
-    
     def __init__(self, ro):
         self.ro = ro
 

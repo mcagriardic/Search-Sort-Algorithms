@@ -1,7 +1,6 @@
 from tree_node import Node
 
 def search(ro: Node, vts: int) -> Node:
-
     if not ro:
         return None
 
