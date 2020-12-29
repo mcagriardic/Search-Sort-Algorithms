@@ -76,7 +76,6 @@ def find_ponds(g):
                 pond = set()
                 pond.add((r,c))
                 processed.add((r,c))
-                prev = (r, c)
                 # nzs -> non zero stack
                 nzs = get_neighbouring_zc(r, c)
                 while nzs:
