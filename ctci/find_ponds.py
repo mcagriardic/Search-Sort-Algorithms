@@ -67,8 +67,10 @@ def find_ponds(g):
 
     processed = set()
     ponds = []
-    cc = len(g)
-    rc = len(g[0])
+    # cc -> column count
+    cc = len(g[0])
+    # rc -> row count
+    rc = len(g)
 
     for r in range(rc):
         for c in range(cc):
@@ -76,6 +78,7 @@ def find_ponds(g):
                 pond = set()
                 pond.add((r,c))
                 processed.add((r,c))
+                prev = (r, c)
                 # nzs -> non zero stack
                 nzs = get_neighbouring_zc(r, c)
                 while nzs:
@@ -88,25 +91,28 @@ def find_ponds(g):
                 if pond not in ponds:
                     ponds.append(pond)
     
+    print("\n")
     for pond in ponds:
         print("*** --- ***")
         print(pond)
+    print("\n")
 
 g = [
-    [0,2,1,0],
-    [0,1,0,1],
-    [0,0,0,1],
-    [0,1,0,1],
+    [0,2,1,0,0],
+    [0,1,0,1,1],
+    [0,0,0,1,0],
+    [0,1,0,1,1],
 ]
 
 # returns the coordinate of vertically or horizontally connected
 # 0 elements
 find_ponds(g)
 
-
 """
->>> *** --- ***
->>> {(1, 2), (3, 2), (0, 0), (3, 0), (2, 1), (2, 0), (2, 2), (1, 0)}
->>> *** --- ***
->>> {(0, 3)}
+>> *** --- ***
+>> {(1, 2), (3, 2), (0, 0), (3, 0), (2, 1), (2, 0), (2, 2), (1, 0)}
+>> *** --- ***
+>> {(0, 3), (0, 4)}
+>> *** --- ***
+>> {(2, 4)}
 """
