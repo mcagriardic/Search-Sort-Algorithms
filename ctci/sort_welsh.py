@@ -1,3 +1,20 @@
+"""
+The welsh language has never had its own character set, and as such sometimes uses multiple
+characters from the latin character set to represent a single letter. We would like to be
+able to sort welsh words correctly according to their welsh letters rather than the latin
+characters used to represent them.
+
+The welsh alphabet is as follows:
+a, b, c, ch, d, dd, e, f, ff, g, ng, h, i, l, ll, m, n, o, p, ph, r, rh, s, t, th, u, w, y
+
+So for example:
+    dea (the welsh for good)
+Would come before
+    dda (the welsh for well)
+
+Because the welsh letter d comes before the welsh letter dd.
+"""
+
 from functools import cmp_to_key
 
 def generate_dictionary():
