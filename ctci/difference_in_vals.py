@@ -12,27 +12,28 @@ Answer = 11,8 (diff = 3)
 
 """
 Initial complexity of sorting: O(n*logn)
-Complexity of comparison: O(n^2)
+Complexity of comparison: O(n1s + n2s)
+Complexity of comparison: O(n)
 
-TOTAL: O(n*logn) + O(n^2)
-TOTAL: O(n^2)
+TOTAL: O(n*logn) + O(n)
+TOTAL: O(n*logn)
 """
 
 def smallest_dif(n1s, n2s):
     n1s.sort()
     n2s.sort()
 
-    diff = None
-    for n1 in n1s:
-        for n2 in n2s:
-            print(n1,n2)
-            if n1 < n2:
-                if not diff or abs(n1 - n2) < diff:
-                    diff = abs(n1 - n2)
-                break
-            else:
-                if not diff or abs(n1 - n2) < diff:
-                    diff = abs(n1 - n2)
+    idx1 = 0
+    idx2 = 0
+    diff = float('inf')
+    while idx1 < len(n1s) and idx2 < len(n2s):
+        tdiff = abs(n1s[idx1] - n2s[idx2])
+        diff = min(tdiff, diff)
+
+        if n1s[idx1] < n2s[idx2]:
+            idx1 += 1
+        else:
+            idx2 += 1
 
     return diff
 
