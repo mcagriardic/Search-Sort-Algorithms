@@ -12,12 +12,10 @@ Answer = 11,8 (diff = 3)
 
 """
 Initial complexity of sorting: O(n*logn)
-Complexity of comparison: O(ns2+ns1-1)
-Complexity of comparison: O(ns2+ns1)
-Complexity of comparison: O(n)
+Complexity of comparison: O(n^2)
 
-TOTAL: O(n*logn) + O(n)
-TOTAL: O(n*logn)
+TOTAL: O(n*logn) + O(n^2)
+TOTAL: O(n^2)
 """
 
 def smallest_dif(n1s, n2s):
@@ -36,9 +34,6 @@ def smallest_dif(n1s, n2s):
                 if not diff or abs(n1 - n2) < diff:
                     diff = abs(n1 - n2)
 
-            if abs(n1 - n2) > diff:
-                break
-
     return diff
 
 ns1 = [1, 3, 15, 11, 2]
@@ -48,29 +43,4 @@ smallest_dif(ns1, ns2)
 
 """
 >> 3
-"""
-
-# worst case:
-
-ns1 = [17,18,19,20,21]
-ns2 = [1,2,3,4,5]
-
-smallest_dif(ns1, ns2)
-
-# comparisons:
-
-"""
-17 1
-17 2
-17 3
-17 4
-17 5
-18 1
-19 1
-20 1
-21 1
-"""
-
-"""
->> 12
 """
