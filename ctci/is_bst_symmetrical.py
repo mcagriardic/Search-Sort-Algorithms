@@ -1,3 +1,7 @@
+"""
+Find if a binary search tree is symmetrical in terms of shape.
+"""
+
 class Node:
     
     def __init__(self, v, r=None, l=None):
