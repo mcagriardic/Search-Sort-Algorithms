@@ -20,3 +20,15 @@ def is_palindrome_permutation(s):
             d2[c1] -= 1
 
     return sum(d2.values()) == 0
+
+is_palindrome_permutation("taco cat")
+
+"""
+>> True
+"""
+
+is_palindrome_permutation("taco catx")
+
+"""
+>> False
+"""
