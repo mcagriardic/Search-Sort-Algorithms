@@ -85,7 +85,7 @@ class LinkedList:
     def sort(self):
         cn = True
         while cn:
-        	# pn -> previous node
+            # pn -> previous node
             cn, pn = self.get_elem_to_move()
             if not cn:
                 # if there is not element to move
