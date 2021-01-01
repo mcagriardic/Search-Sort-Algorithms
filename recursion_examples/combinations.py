@@ -12,7 +12,7 @@ def combination(cs, s):
         # rc -> remaining characters
         rc = [e for e in cs if c != e]
         
-        # cts -> combinations temp
+        # cst -> combinations temp
         cst = combination(rc, s)
         
         # ct -> combination temp

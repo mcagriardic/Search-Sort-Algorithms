@@ -5,7 +5,7 @@ def expand(cs, to_append=""):
         return cs
     
     for i in range(len(cs)):
-        if cs[i].isdigit():
+        if cs[i].isnumeric():
             no = int(cs[i])
         elif cs[i].isalpha():
             to_append += cs[i] 
