@@ -88,7 +88,7 @@ def next_pattern_index(cs, p):
 def complete_pattern_to_standardised(cp):
     # pd -> pattern dictionary
     pd = {}
-    # -> char a idx
+    # chr_aidx -> char a idx
     chr_aidx = 97
     for k,_ in cp:
         if k not in pd:
