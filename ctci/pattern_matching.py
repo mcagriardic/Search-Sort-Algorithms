@@ -43,10 +43,10 @@ def is_pattern_match(cs, pm):
         cut = count_until_next_dif_elem(pm)
         if p * cut != cs[s:len(p) * cut]:
             return False
-
+        if len(pm) == 0 and len(p) != 0:
+            return False
         pm = pm[cut:]
         cs = cs[len(p) * cut:]
-
     return True
 
 # tc -> test cases
@@ -59,5 +59,5 @@ tc = [
 [is_pattern_match(cs, pm) for cs, pm in tc]
 
 """
->> [True, True, False]
+>> [True, False, False]
 """

@@ -12,7 +12,7 @@ def find_pattern(cs):
     if len(cs) == 1:
         return [cs]
     
-    if cs[0] == cs[1]:
+    if len(cs) == 2:
         return [cs[0]]
     
     # p -> pattern
@@ -64,16 +64,26 @@ def next_pattern_index(cs, p):
     j = 0
     # pc -> pattern count
     pc = 0
+    # collects the matched characters that are
+    # unable to complete the pattern cycle
+    # e.g. catcatca -> ca makes a partial match 
+    # with the pattern "cat". We substract the
+    # length of this container from the index
+    # tch -> temp cycle holder
+    tch = []
     while i < len(cs):
         if cs[i] == p[j]:
+            tch.append(cs[i])
             i += 1
             j += 1
             if j == len(p):
                 pc += 1
                 j = 0
+                tch = []
         else:
             break
-    return i, ("".join(p), pc)
+
+    return i - len(tch), ("".join(p), pc)
 
 def complete_pattern_to_standardised(cp):
     # pd -> pattern dictionary
@@ -106,15 +116,40 @@ def compute_pattern(cs):
         # pp -> pattern prev, pc -> pattern count
         npi, (pp, pc) = next_pattern_index(cs[acc:csl], p)
         acc += npi
+        if npi == 0:
+            acc = csl
         cp.append((pp, pc))
-        
+    
     return complete_pattern_to_standardised(cp)
 
-cs1 = "caccacgogodef"
-cs2 = "caccacgogocaccacgo"
+tcs = [
+    ("caccacgogodef", "aabbc"),
+    ("catcatcatgogocat", "aaabba"),
+    ("catcatcacar", "aabbc"),
+    ("catcaxcaca", "abcc"),
+    ("cacac", "aab"),
+    ("ca", "ab"),
+    ("cc", "aa"),
+    ("c", "a"),
+    ("", ""),
+]
 
-[compute_pattern(c) for c in [cs1, cs2]]
+[compute_pattern(q) == a for q,a in tcs]
+
+tcs = [
+    ("caccacgogodef", "aabbc"),
+    ("catcatcatgogocat", "aaabba"),
+    ("catcatcacar", "aabbc"),
+    ("catcaxcaca", "abcc"),
+    ("cacac", "aab"),
+    ("ca", "ab"),
+    ("cc", "aa"),
+    ("c", "a"),
+    ("", ""),
+]
+
+[compute_pattern(q) == a for q,a in tcs]
 
 """
->> ['aabbc', 'aabbaab']
+>> [True, True, True, True, True, True, True, True, True]
 """
