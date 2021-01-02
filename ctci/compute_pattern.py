@@ -122,20 +122,7 @@ def compute_pattern(cs):
     
     return complete_pattern_to_standardised(cp)
 
-tcs = [
-    ("caccacgogodef", "aabbc"),
-    ("catcatcatgogocat", "aaabba"),
-    ("catcatcacar", "aabbc"),
-    ("catcaxcaca", "abcc"),
-    ("cacac", "aab"),
-    ("ca", "ab"),
-    ("cc", "aa"),
-    ("c", "a"),
-    ("", ""),
-]
-
-[compute_pattern(q) == a for q,a in tcs]
-
+# tcs -> test cases
 tcs = [
     ("caccacgogodef", "aabbc"),
     ("catcatcatgogocat", "aaabba"),

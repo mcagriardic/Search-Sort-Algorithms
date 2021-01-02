@@ -49,14 +49,14 @@ def is_pattern_match(cs, pm):
         cs = cs[len(p) * cut:]
     return True
 
-# tc -> test cases
-tc = [
+# tcs -> test cases
+tcs = [
     ("catcatcatgogocat", "aaabba"),
     ("catcatcacar", "aabb"),
     ("catcaxcaca", "aabb")
 ]
 
-[is_pattern_match(cs, pm) for cs, pm in tc]
+[is_pattern_match(cs, pm) for cs, pm in tcs]
 
 """
 >> [True, False, False]
