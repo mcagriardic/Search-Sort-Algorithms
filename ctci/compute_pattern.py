@@ -36,7 +36,9 @@ def find_pattern(cs):
     
     return p
 
-def ALTERNATIVE_FIND_PATTERN(cs):
+# alternative to above find_pattern function
+# this one is more concise.
+def alternative_find_pattern(cs):
     if len(cs) == 0:
     return []
 
