@@ -36,10 +36,9 @@ def count_until_next_dif_elem(p):
             break
     return c
 
-
 def is_pattern_match(cs, pm):
     s = 0
-    while True:
+    while len(cs) > 0:
         p = find_pattern(cs)
         cut = count_until_next_dif_elem(pm)
         if p * cut != cs[s:len(p) * cut]:
@@ -47,9 +46,7 @@ def is_pattern_match(cs, pm):
 
         pm = pm[cut:]
         cs = cs[len(p) * cut:]
-        
-        if len(cs) == 0:
-            break
+
     return True
 
 # tc -> test cases
