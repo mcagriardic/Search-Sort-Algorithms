@@ -42,19 +42,22 @@ def alternative_find_pattern(cs):
     if len(cs) == 0:
         return []
 
-    tc1 = [cs[0]]
-    tc2 = []
+    # p -> pattern
+    p = [cs[0]]
+    # tc -> temporary container
+    tc = []
+    # mi -> match index
     mi = 0
     for i in range(1, len(cs)):
-        if cs[i] == tc1[mi]:
-            tc2.append(cs[i])
+        if cs[i] == p[mi]:
+            tc.append(cs[i])
             mi += 1
-            if tc1 == tc2:
-                return tc1
-        elif cs[i] != tc1[mi]:
-            tc1.append(cs[i])
+            if p == tc:
+                return p
+        elif cs[i] != p[mi]:
+            p.append(cs[i])
 
-    return tc1
+    return p
 
 def next_pattern_index(cs, p):
     i = 0
