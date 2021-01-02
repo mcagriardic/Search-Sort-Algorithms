@@ -40,7 +40,7 @@ def find_pattern(cs):
 # this one is more concise.
 def alternative_find_pattern(cs):
     if len(cs) == 0:
-    return []
+        return []
 
     tc1 = [cs[0]]
     tc2 = []
