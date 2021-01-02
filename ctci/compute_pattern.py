@@ -36,6 +36,24 @@ def find_pattern(cs):
     
     return p
 
+def ALTERNATIVE_FIND_PATTERN(cs):
+    if len(cs) == 0:
+    return []
+
+    tc1 = [cs[0]]
+    tc2 = []
+    mi = 0
+    for i in range(1, len(cs)):
+        if cs[i] == tc1[mi]:
+            tc2.append(cs[i])
+            mi += 1
+            if tc1 == tc2:
+                return tc1
+        elif cs[i] != tc1[mi]:
+            tc1.append(cs[i])
+
+    return tc1
+
 def next_pattern_index(cs, p):
     i = 0
     j = 0
