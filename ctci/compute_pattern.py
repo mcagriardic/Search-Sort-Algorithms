@@ -7,6 +7,7 @@ cs2 = "caccacgogocaccacgo" -> "aabbaab"
 
 """
 
+# cs -> character set
 def find_pattern(cs):
     if len(cs) == 1:
         return [cs]
@@ -14,6 +15,7 @@ def find_pattern(cs):
     if cs[0] == cs[1]:
         return [cs[0]]
     
+    # p -> pattern
     p = []
     for i in range(1, len(cs)):
         if not p or len(p) == 1:
@@ -31,6 +33,7 @@ def find_pattern(cs):
 
     if i + 1 == len(cs):
         p.append(cs[i])
+    
     return p
 
 def next_pattern_index(cs, p):
@@ -63,6 +66,7 @@ def complete_pattern_to_standardised(cp):
     # p -> pattern, oc -> occurrence count
     for p, oc in cp:
         pattern += pd[p] * oc
+    
     return pattern
     
 def compute_pattern(cs):
@@ -80,6 +84,7 @@ def compute_pattern(cs):
         npi, (pp, pc) = next_pattern_index(cs[acc:csl], p)
         acc += npi
         cp.append((pp, pc))
+        
     return complete_pattern_to_standardised(cp)
 
 cs1 = "caccacgogodef"
