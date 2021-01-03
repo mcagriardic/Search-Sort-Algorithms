@@ -123,10 +123,7 @@ def check_validity(p):
         return False
 
     CHARACTERS = ["$", "#", "@"]
-    cisupper = False
-    cislower = False
-    cisdigit = False
-    cischaracter = False
+    cisupper, cislower, cisdigit, cischaracter = tuple(False for i in range(3))
     # c -> char
     for c in p:
         if c.isupper():
