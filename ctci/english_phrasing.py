@@ -7,6 +7,7 @@ Eg
 Two Thousand Three Hundred Twenty (no "ands" required)
 """
 
+# ws -> wordset
 def english_phrasing(ws):
     dict_nums_1 = {
         "one":   1,
@@ -40,7 +41,9 @@ def english_phrasing(ws):
 
     ws = ws.lower().split(" ")
 
+    # acc -> accumulator
     acc = 0
+    # tacc -> temporary accumulator
     tacc = 0
     for w in ws:
         if w == "hundred":
