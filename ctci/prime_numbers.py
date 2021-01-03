@@ -13,3 +13,15 @@ def is_prime_number(val):
         if val % i == 0:
             return False
         i+= 1
+
+is_prime_number(6)
+
+"""
+>> False
+"""
+
+is_prime_number(7)
+
+"""
+>> True
+"""
