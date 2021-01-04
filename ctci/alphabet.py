@@ -11,10 +11,11 @@ the your program should print
 """
 
 def longest_alphabetical_ss(cs):
-
     a = dict((chr(i),i) for i in range(65, 123))
 
+    # mc -> main container
     mc = []
+    # tc -> temporary container
     tc = []
 
     for c in cs:
