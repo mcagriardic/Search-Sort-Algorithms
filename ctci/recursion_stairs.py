@@ -18,3 +18,51 @@ Sample Output:
 4
 44
 """
+
+import timeit
+
+# Without dynamic programming
+# nodp -> no dymanic programming
+def calculate_permutations_nodp(n):
+    if n == 1: return 1
+    if n == 2: return 2
+    if n == 3: return 4
+
+    return (
+        calculate_permutations_nodp(n - 1) + 
+        calculate_permutations_nodp(n - 2) + 
+        calculate_permutations_nodp(n - 3)
+    )
+
+%timeit for x in range(50): calculate_permutations_nodp(25)
+
+"""
+>> "6.86 s ± 4.8 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)"
+"""
+
+# With dynamic programming
+def __calculate_permutations(n, cache):
+    if n == 1: return 1
+    if n == 2: return 2
+    if n == 3: return 4
+
+    if n in cache:
+        return cache[n]
+
+    cache[n] = (
+        __calculate_permutations(n - 1, cache) +
+        __calculate_permutations(n - 2, cache) +
+        __calculate_permutations(n - 3, cache)
+        )
+
+    return cache[n]
+
+# dp -> dynamic programming
+def calculate_permutations_dp(n):
+    return __calculate_permutations(n, {})
+
+%timeit for x in range(50): calculate_permutations_dp(25)
+
+"""
+513 µs ± 657 ns per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+"""
