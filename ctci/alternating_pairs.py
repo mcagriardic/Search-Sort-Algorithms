@@ -21,3 +21,20 @@ Return True (for valid) while postcode is between 100000 and 999999,
 and there are no alternating digits
 Return False for invalid
 """
+
+# p -> postcode
+def is_valid_postcode(p):
+  if p < 100000 or p > 999999:
+    return False
+  p = str(p)
+  for i in range(2,len(p)):
+    if p[i-2] == p[i]:
+      return False
+  
+  return True
+
+is_valid_postcode(15)
+
+"""
+>> False
+"""
