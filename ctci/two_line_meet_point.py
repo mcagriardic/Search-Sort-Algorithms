@@ -35,6 +35,7 @@ def create_line_coordinates(l, grid_edge):
     xs, xe = l[0]
     ys, ye = l[1]
     x = create_line_coordinates_util(xs, xe, grid_edge)
+    
     y = create_line_coordinates_util(ys, ye, grid_edge)
     return list(zip(x, y))
 
