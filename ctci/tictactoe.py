@@ -30,3 +30,12 @@ class UnitTest(unittest.TestCase):
     def test_diagonal_winner(self):
         play = [[1,1], [2,1], [0,0], [0,2], [2,2], [0,1], [1,0], [0,0], [2,2], [0,1], [2,2]]
         self.assertEqual(tic_tac_tow_winning_move(play), [2,2])
+
+
+
+
+def get_board_dimensions(play):
+	return max(max(play))
+
+def set_board(max_coordinate):
+	return [[0] * max_coordinate for s in range(max_coordinate)]
