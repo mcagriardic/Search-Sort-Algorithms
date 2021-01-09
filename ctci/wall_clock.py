@@ -13,7 +13,6 @@ def calculate_hour_angle(hour, minute):
 def get_angle_between(hour, minute):
     minute_angle = calculate_minute_angle(minute)
     hour_angle = calculate_hour_angle(hour, minute)
-
     return abs(hour_angle - minute_angle)
 
 get_angle_between(7, 42)
