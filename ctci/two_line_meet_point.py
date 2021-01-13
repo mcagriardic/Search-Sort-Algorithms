@@ -46,7 +46,7 @@ def has_common_coordinate(l1, l2):
                 return np.add(c1, 1).tolist()
     return -1
 
-def are_lines_overlap(l1, l2):
+def do_lines_overlap(l1, l2):
     l1,l2 = [standardise_coordinates(l) for l in [l1, l2]]
     grid_edge = get_grid_edge(l1 + l2)
     l1 = create_line_coordinates(l1, grid_edge)
@@ -54,13 +54,13 @@ def are_lines_overlap(l1, l2):
     return has_common_coordinate(l1, l2)
 
 ## Complexity n^2 where n is the grid edge
-are_lines_overlap([[2, 2], [1, 4]], [[1, 4], [3, 3]])
+do_lines_overlap([[2, 2], [1, 4]], [[1, 4], [3, 3]])
 
 """
 >> (1, 2)
 """
 
-def are_lines_overlap_alt(l1, l2):
+def do_lines_overlap_alt(l1, l2):
     x1, y1 = l1
     x2, y2 = l2
     
@@ -76,19 +76,19 @@ def are_lines_overlap_alt(l1, l2):
     ))
 
 # Complexity n where n is the length of the longest line
-are_lines_overlap_alt([[2, 2], [1, 4]], [[1, 4], [3, 3]])
+do_lines_overlap_alt([[2, 2], [1, 4]], [[1, 4], [3, 3]])
 
 """
 >> [(2, 3)]
 """
 
-are_lines_overlap_alt([[1, 4], [1, 4]], [[1, 4], [1, 4]])
+do_lines_overlap_alt([[1, 4], [1, 4]], [[1, 4], [1, 4]])
 
 """
 >> [(1, 1), (2, 2), (3, 3), (4, 4)]
 """
 
-are_lines_overlap_alt([[9, 13], [10, 10]], [[1, 4], [1, 4]])
+do_lines_overlap_alt([[9, 13], [10, 10]], [[1, 4], [1, 4]])
 
 """
 >> []
