@@ -32,8 +32,6 @@ class UnitTest(unittest.TestCase):
         self.assertEqual(tic_tac_tow_winning_move(play), [2,2])
 
 
-
-
 def get_board_dimensions(play):
 	return max(max(play))
 

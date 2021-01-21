@@ -73,3 +73,33 @@ def bfp(ro):
             al += 1
 
     return nbl
+
+
+# Alternative
+from collections import defaultdict
+
+
+def bfp(ro):
+    queue = [ro]
+    cl = 1
+    nl = 0
+    lc = 1
+    layers = defaultdict(lambda: [])
+    while queue:
+        cl -= 1
+        if queue[0].left:
+            nl += 1
+            queue.append(queue[0].left)
+        if queue[0].right:
+            nl += 1
+            queue.append(queue[0].right)
+        layers[lc].append(str(queue.pop(0).val))
+
+        if cl == 0:
+            lc += 1
+            cl, nl = nl, 0
+
+    for k in layers.copy():
+        print("Layer %s ..." %k)
+        print(" ".join(layers[k]))
+        print("\n")
