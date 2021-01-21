@@ -27,7 +27,6 @@ class Trie:
         for i, c in enumerate(ro.children):
             if c:
                 ew = self.__get_all_words(c, word=word + [chr(ord('a') + i)])
-                
                 for w in ew:
                     words.append(w)
         return words
