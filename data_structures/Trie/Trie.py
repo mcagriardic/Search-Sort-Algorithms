@@ -11,7 +11,7 @@ class Trie:
         # ctn -> current trie node
         ctn = self.root
         cs = cs.lower()
-        for i, c in enumerate(cs):
+        for c in cs:
             c_ascii_idx = self.char_to_index(c)
             if not ctn.children[c_ascii_idx]:
                 ctn.children[c_ascii_idx] = TrieNode()
